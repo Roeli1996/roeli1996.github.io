@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacybeleid — DailyDoku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #faf9f5;
+    --surface: #ffffff;
+    --ink: #1d241f;
+    --accent: #2f6b54;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3eee7;
+    --muted: #6f7a73;
+    --line: #dee6e1;
+    --focus: #2f6b54;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #121613;
+      --surface: #181d19;
+      --ink: #e7ece8;
+      --accent: #7fc4a5;
+      --accent-ink: #0d1512;
+      --accent-soft: #1b2620;
+      --muted: #93a399;
+      --line: #263029;
+      --focus: #7fc4a5;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+
+  .page {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .grid-glyph {
+    width: 28px;
+    height: 28px;
+    flex: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    padding: 3px;
+    border: 1.5px solid var(--accent);
+    border-radius: 5px;
+  }
+  .grid-glyph span { background: var(--accent-soft); border-radius: 1px; }
+  .grid-glyph span.on { background: var(--accent); }
+  .wordmark-text {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 2px;
+    background: var(--surface);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+  }
+  .lang-toggle button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: 0.03em;
+  }
+  .lang-toggle button.active {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0 0 6px;
+  }
+  .updated {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin: 0 0 40px;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  section { margin-top: 40px; }
+  section h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 0 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  section > p, section > ul { margin-top: 16px; }
+
+  ul.data-list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  ul.data-list li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  ul.data-list li strong {
+    display: block;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chip {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 4px 9px;
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  [data-lang-content] { display: none; }
+  [data-lang-content].active { display: block; }
+
+  @media (max-width: 480px) {
+    .page { padding: 40px 18px 60px; }
+    h1 { font-size: 1.7rem; }
+    footer { flex-direction: column; gap: 6px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <div class="wordmark">
+      <span class="grid-glyph" aria-hidden="true">
+        <span class="on"></span><span></span><span class="on"></span>
+        <span></span><span class="on"></span><span></span>
+        <span class="on"></span><span></span><span class="on"></span>
+      </span>
+      <span class="wordmark-text">DailyDoku</span>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="btn-nl" class="active" onclick="setLang('nl')">NL</button>
+      <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <div data-lang-content data-lang="nl" class="active">
+    <h1>Privacybeleid</h1>
+    <p class="updated">Laatst bijgewerkt — 28 augustus 2026</p>
+    <p class="intro">DailyDoku is ontwikkeld door AR Develop. Dit beleid legt uit welke gegevens de app verzamelt, waarom, en hoe je die kan laten verwijderen.</p>
+
+    <section>
+      <h2>Welke gegevens we verzamelen</h2>
+      <ul class="data-list">
+        <li><strong>Accountgegevens</strong>Als je kiest om aan te melden (met Google of e-mail/wachtwoord), verwerken we je e-mailadres en een unieke gebruikers-ID via Firebase Authentication. Speel je liever zonder account ("gast"-modus)? Dan wordt er niets verzameld en blijft je voortgang uitsluitend lokaal op je toestel.</li>
+        <li><strong>Spelvoortgang</strong>Ben je aangemeld, dan slaan we je dagelijkse resultaten, huidig levelnummer en vriendencode op in Firebase Firestore, gekoppeld aan je gebruikers-ID — zo blijft je voortgang behouden bij herinstallatie en gedeeld tussen toestellen.</li>
+        <li><strong>Vrienden</strong>Voer je een vriendencode in, dan slaan we de vriendschapsrelatie tussen beide gebruikers-ID's op, samen met een openbare gebruikersnaam die je zelf instelt.</li>
+        <li><strong>Advertentiegegevens</strong>De app toont advertenties via Google AdMob. AdMob kan een advertentie-ID en apparaatgegevens verzamelen om advertenties weer te geven en te meten. Zie <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">hoe Google advertenties gebruikt</a>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Wat we niet verzamelen</h2>
+      <p>Geen locatiegegevens, contacten, foto's, gezondheids- of financiële gegevens. Geen analyse- of crashrapportagediensten.</p>
+    </section>
+
+    <section>
+      <h2>Externe dienstverleners</h2>
+      <p>We maken gebruik van de volgende diensten van Google LLC, elk met een eigen privacybeleid:</p>
+      <div class="chip-row">
+        <a class="chip" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase (Auth &amp; Firestore)</a>
+        <a class="chip" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google AdMob</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gegevens verwijderen</h2>
+      <p>Wil je je account en gegevens laten verwijderen? Mail <a href="mailto:ar.develop.support@gmail.com">ar.develop.support@gmail.com</a> vanaf het adres dat aan je account gekoppeld is. We verwerken je verzoek binnen 30 dagen.</p>
+    </section>
+
+    <section>
+      <h2>Kinderen</h2>
+      <p>DailyDoku richt zich niet specifiek op kinderen onder de 13 jaar en verzamelt bewust geen persoonsgegevens van kinderen onder die leeftijd.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Vragen over dit beleid? <a href="mailto:ar.develop.support@gmail.com">ar.develop.support@gmail.com</a></p>
+    </section>
+  </div>
+
+  <div data-lang-content data-lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated — August 28, 2026</p>
+    <p class="intro">DailyDoku is developed by AR Develop. This policy explains what data the app collects, why, and how to have it deleted.</p>
+
+    <section>
+      <h2>What we collect</h2>
+      <ul class="data-list">
+        <li><strong>Account information</strong>If you choose to sign in (with Google or email/password), we process your email address and a unique user ID via Firebase Authentication. Prefer to play without an account ("guest" mode)? Then nothing is collected and your progress stays local to your device only.</li>
+        <li><strong>Game progress</strong>If signed in, we store your daily results, current level number, and friend code in Firebase Firestore, linked to your user ID — so your progress survives reinstalls and syncs across devices.</li>
+        <li><strong>Friends</strong>If you enter a friend code, we store the friendship relation between the two user IDs, along with a public username you set yourself.</li>
+        <li><strong>Advertising data</strong>The app shows ads via Google AdMob. AdMob may collect an advertising ID and device data to serve and measure ads. See <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">how Google uses advertising data</a>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What we don't collect</h2>
+      <p>No location data, contacts, photos, health, or financial data. No analytics or crash-reporting services.</p>
+    </section>
+
+    <section>
+      <h2>Third-party services</h2>
+      <p>We use the following Google LLC services, each with its own privacy policy:</p>
+      <div class="chip-row">
+        <a class="chip" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase (Auth &amp; Firestore)</a>
+        <a class="chip" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google AdMob</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Deleting your data</h2>
+      <p>To request deletion of your account and data, email <a href="mailto:ar.develop.support@gmail.com">ar.develop.support@gmail.com</a> from the address linked to your account. We process requests within 30 days.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>DailyDoku is not specifically directed at children under 13 and does not knowingly collect personal data from children under that age.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions about this policy? <a href="mailto:ar.develop.support@gmail.com">ar.develop.support@gmail.com</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <span>AR Develop</span>
+    <span>com.ardevelop.dailydoku</span>
+  </footer>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang-content]').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('dailydoku-privacy-lang', lang); } catch (e) {}
+  }
+  (function () {
+    try {
+      var saved = localStorage.getItem('dailydoku-privacy-lang');
+      if (saved === 'en') setLang('en');
+    } catch (e) {}
+  })();
+</script>
+</body>
+</html>
